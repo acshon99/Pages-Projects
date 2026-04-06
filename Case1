@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictive Analytics & Machine Learning Project</title>
+
+<!-- Chart.js for visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        background: #f5f7fa;
+        color: #333;
+    }
+
+    header {
+        background: #0f172a;
+        color: white;
+        padding: 30px;
+        text-align: center;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        background: #1e293b;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        margin: 5px 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    nav a:hover {
+        color: #38bdf8;
+    }
+
+    section {
+        margin: 30px auto;
+        padding: 30px;
+        max-width: 1000px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+        color: #0f172a;
+    }
+
+    button {
+        background: #0f172a;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #1e293b;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #0f172a;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Predictive Analytics & Machine Learning Project</h1>
+    <p>ISOM 835 | Business Analytics Portfolio</p>
+</header>
+
+<nav>
+<ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#eda">EDA</a></li>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#evaluation">Evaluation</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#visuals">Visuals</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
+    <li><a href="#appendix">Appendix</a></li>
+</ul>
+</nav>
+
+<section id="overview">
+    <h2>Project Overview / Executive Summary</h2>
+    <p>
+        This project aims to solve a predictive analytics problem by applying machine learning techniques.
+        The objective is to identify key drivers, build predictive models, and generate actionable insights
+        that support data-driven decision-making.
+    </p>
+</section>
+
+<section id="dataset">
+    <h2>Dataset Description</h2>
+    <ul>
+        <li>Source: [Insert dataset source]</li>
+        <li>Observations: [Insert number]</li>
+        <li>Features: [Insert key variables]</li>
+        <li>Preprocessing: Missing value handling, normalization, encoding</li>
+    </ul>
+</section>
+
+<section id="eda">
+    <h2>Exploratory Data Analysis (EDA)</h2>
+    <p>
+        EDA was conducted to identify distributions, correlations, and anomalies within the dataset.
+    </p>
+
+    <button onclick="toggleSection('edaDetails')">Show Details</button>
+    <div id="edaDetails" class="hidden">
+        <ul>
+            <li>Correlation analysis</li>
+            <li>Outlier detection</li>
+            <li>Feature distributions</li>
+        </ul>
+    </div>
+</section>
+
+<section id="model">
+    <h2>Model Selection</h2>
+    <p>
+        Multiple models were evaluated, including Logistic Regression, Decision Trees, and Random Forest.
+        The final model was selected based on performance metrics and interpretability.
+    </p>
+</section>
+
+<section id="evaluation">
+    <h2>Model Evaluation</h2>
+
+    <button onclick="toggleSection('metrics')">Show Metrics</button>
+
+    <div id="metrics" class="hidden">
+        <ul>
+            <li>Accuracy: 92%</li>
+            <li>Precision: 89%</li>
+            <li>Recall: 91%</li>
+            <li>F1 Score: 90%</li>
+        </ul>
+    </div>
+</section>
+
+<section id="results">
+    <h2>Results & Key Insights</h2>
+    <p>
+        The model identified key predictors that significantly influence the target variable.
+        These insights can guide strategic decisions and improve performance outcomes.
+    </p>
+</section>
+
+<section id="visuals">
+    <h2>Visualization of Results</h2>
+    <canvas id="resultsChart"></canvas>
+</section>
+
+<section id="limitations">
+    <h2>Limitations</h2>
+    <p>
+        The model is subject to limitations such as data bias, potential overfitting,
+        and limited generalizability beyond the dataset.
+    </p>
+</section>
+
+<section id="recommendations">
+    <h2>Recommendations</h2>
+    <ul>
+        <li>Improve data quality and expand dataset</li>
+        <li>Test additional machine learning models</li>
+        <li>Deploy model into a real-time system</li>
+    </ul>
+</section>
+
+<section id="appendix">
+    <h2>Appendix</h2>
+    <p>
+        Includes technical documentation, model assumptions, and additional analysis.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 | Your Name | GitHub Portfolio</p>
+</footer>
+
+<script>
+    function toggleSection(id) {
+        const section = document.getElementById(id);
+        section.classList.toggle("hidden");
+    }
+
+    // Sample Chart (Replace with your real results)
+    const ctx = document.getElementById('resultsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Accuracy', 'Precision', 'Recall', 'F1 Score'],
+            datasets: [{
+                label: 'Model Performance',
+                data: [92, 89, 91, 90]
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
